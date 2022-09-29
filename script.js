@@ -11,7 +11,7 @@ function search (){
   // var searchValue = desiredLocation.value;
   var desiredLocation = document.querySelector("#searchLocation").value;
 
-  fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${desiredLocation},&limit=4&appid=0586f93376fa6711704b9de4a46cfc56`)
+  fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${desiredLocation}&limit=4&appid=0586f93376fa6711704b9de4a46cfc56`)
     .then(function (response) {
         return response.json()
       })
@@ -33,7 +33,7 @@ function search (){
 }
 
 function weatherData(lat, lon){
-  fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&cnt=3&appid=0586f93376fa6711704b9de4a46cfc56`)
+  fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&cnt=6&appid=0586f93376fa6711704b9de4a46cfc56`)
   .then(function (response) {
     return response.json()
   })
@@ -41,8 +41,38 @@ function weatherData(lat, lon){
     console.log(data)
     var name = data.city.name;
     console.log(name);
+
     var weather = data.list[0].weather[0].main;
     console.log(weather);
+
+    var weatherDes = data.list[0].weather[0].description;
+    console.log(weatherDes);
+
+    var weatherIcon = data.list[0].weather[0].icon;
+    console.log(weatherIcon);
+
+    var tempature = data.list[0].main.temp;
+    console.log(tempature);
+
+    var weatherDetTable = document.getElementById("weatherTable");
+    var tableContentName = document.createTextNode(`${name}`);
+    var tableContentWeather = document.createTextNode(` ${weather}`);
+    var tableBody = document.createElement("tbody");
+    var thEle = document.createElement("th");
+    var tableRow = document.createElement("tr");
+    var tableTD = document.createElement("td");
+    var newTBody = weatherDetTable.appendChild(tableBody);
+    var newTableRow = newTBody.appendChild(tableRow);
+    var newTableHead = newTableRow.appendChild(thEle).append(tableContentName);
+    var newTableTD = newTableRow.appendChild(tableTD).append(tableContentWeather);
+
+    // remember this section might not be needed erase later!!
+    // var tablePrint = thEle.appendChild();
+    // var cityName = weatherDetTable.append();
+    // var tablePrintWeather = tableRow.appendChild(tableContentWeather);
+    // var cityWeather = weatherDetTable.append(tablePrintWeather);
+
+     
     
   }
-)}
+)};
