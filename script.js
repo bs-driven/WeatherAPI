@@ -21,22 +21,23 @@ function search (){
         var city = data[0].name;
         var lat = data[0].lat;
         var lon = data[0].lon;
+        var state = data[0].state;
         console.log(data);
 
       // console.log(city);
       // console.log(lat);
       // console.log(lon);
-      weatherData(lat, lon);
+      weatherData(lat, lon ,state);
       // console.log(country);
 
       });  
       // console.log()  
 };
 
-function weatherData(lat, lon){
+function weatherData(lat, lon,state){
    // https://pro.openweathermap.org/data/2.5/forecast/climate
   //  http://api.openweathermap.org/data/2.5/forecast
-  fetch(`https://pro.openweathermap.org/data/2.5/forecast/climate?lat=${lat}&lon=${lon}&cnt=6&appid=0586f93376fa6711704b9de4a46cfc56`)
+  fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&cnt=6&appid=0586f93376fa6711704b9de4a46cfc56`)
 
   .then(function (response) {
     return response.json()
@@ -46,6 +47,7 @@ function weatherData(lat, lon){
     // for (let i = 0; i < 10; i++) { }
     
     var name = data.city.name;
+    var stateName = state;
     console.log(name);
 
     var weather = data.list[0].weather[0].main;
@@ -60,7 +62,7 @@ function weatherData(lat, lon){
     var tempature = data.list[0].main.temp;
     console.log(tempature);
 
-    cardCreations( name, weather, weatherDesc, tempature)
+    cardCreations( name, weather, weatherDesc, tempature, stateName)
 
     // var thEle = document.createElement("th");
     // var tableRow = document.createElement("tr");
@@ -83,7 +85,7 @@ function weatherData(lat, lon){
   });
 };
 
-function cardCreations(name, weather, weatherDesc, tempature){
+function cardCreations(name, weather, weatherDesc, tempature, stateName){
 
   var DR = document.getElementById("destinationResults");
   var newArticle = document.createElement("article");
@@ -95,8 +97,16 @@ function cardCreations(name, weather, weatherDesc, tempature){
   newDiv.classList.add("card-body");
   var newh5 = document.createElement("h5");
   newDiv.append(newh5);
-  var cardTitle = document.createTextNode(`${name}`);
+  var cardTitle = document.createTextNode(`${name}, ${stateName}`);
   newh5.append(cardTitle);
+  var newh6 = document.createElement('h6');
+  newDiv.append(newh6);
+  var weatherTitle = document.createTextNode(`${weather}`);
+  newh6.append(weatherTitle);
+  var newPElement = document.createElement("p")
+  newDiv.append(newPElement)
+  var pBody = document.createTextNode(`Todays tempature is ${tempature}, Describtion: ${weatherDesc}`);
+  newPElement.append(pBody);
   // newDiv.appened(`${weatherCardTitle}`);
  
 };
