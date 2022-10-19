@@ -63,25 +63,6 @@ function weatherData(lat, lon,state){
     console.log(tempature);
 
     cardCreations( name, weather, weatherDesc, tempature, stateName)
-
-    // var thEle = document.createElement("th");
-    // var tableRow = document.createElement("tr");
-    // var tableTD = document.createElement("td");
-    // var weatherDetTable = document.getElementById("weatherTable");
-    // var tableContentName = document.createTextNode(`${name}`);
-    // var tableContentWeather = document.createTextNode(` ${weather}`);
-    // var tableBody = document.createElement("tbody");
-
-    // var newTBody = weatherDetTable.appendChild(tableBody);
-    // var newTableRow = newTBody.appendChild(tableRow);
-    // var newTableHead = newTableRow.appendChild(thEle).append(tableContentName);
-    // var newTableTD = newTableRow.appendChild(tableTD).append(tableContentWeather);
-
-    // // remember this section might not be needed erase later!!
-    // // var tablePrint = thEle.appendChild();
-    // // var cityName = weatherDetTable.append();
-    // // var tablePrintWeather = tableRow.appendChild(tableContentWeather);
-    // // var cityWeather = weatherDetTable.append(tablePrintWeather);   
   });
 };
 
@@ -107,6 +88,5 @@ function cardCreations(name, weather, weatherDesc, tempature, stateName){
   newDiv.append(newPElement)
   var pBody = document.createTextNode(`Todays tempature is ${tempature}, Describtion: ${weatherDesc}`);
   newPElement.append(pBody);
-  // newDiv.appened(`${weatherCardTitle}`);
  
 };
