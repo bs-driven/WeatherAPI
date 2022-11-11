@@ -10,12 +10,12 @@ var searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
 
 searchButton.addEventListener("click", search);
 // searchButton.addEventListener("keydown", search )
-searchContainer.addEventListener('keypress', function (e) {
-  if (e.key === 'Enter') {
-    // code for enter
-    search();
-  }
-});
+// searchContainer.addEventListener('keypress', function (e) {
+//   if (e.key === 'Enter') {
+//     // code for enter
+//     search();
+//   }
+// });
 
 function search (){
   // var searchValue = desiredLocation.value;
@@ -30,7 +30,7 @@ var desiredLocation = document.querySelector("#searchLocation").value;
     .then(function (response) {
         return response.json()
       })
-      .then (function(data){
+      .then (function (data) {
         // var city = data[0].name;
         var lat = data[0].lat;
         var lon = data[0].lon;
@@ -40,8 +40,9 @@ var desiredLocation = document.querySelector("#searchLocation").value;
       // console.log(city);
       // console.log(lat);
       // console.log(lon);
-       // weatherDates (lat, lon);
+      //  weatherDates (lat, lon);
       weatherData(lat, lon ,state);
+    
       // console.log(country);
 
       });  
@@ -50,21 +51,22 @@ var desiredLocation = document.querySelector("#searchLocation").value;
 ///////////////////////////////////////////////////////////////////////////
 
 // function weatherDates (lat, lon){
-//   fetch(`api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&cnt=6&appid=0586f93376fa6711704b9de4a46cfc56`)
+//   fetch(`http://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&appid=0586f93376fa6711704b9de4a46cfc56`)
 //   .then(function (response) {
 //     return response.json()
 //   })
 //   .then (function(data){
-//     console.log(data)
+//     console.log(data, "here it is")
   
 //   })
 
 // };
 
+
 function weatherData(lat, lon,state){
    // https://pro.openweathermap.org/data/2.5/forecast/climate
   //  http://api.openweathermap.org/data/2.5/forecast
-  fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&cnt=6&units=imperial&appid=0586f93376fa6711704b9de4a46cfc56`)
+  fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=0586f93376fa6711704b9de4a46cfc56`)
 
   .then(function (response) {
     return response.json()
@@ -88,17 +90,23 @@ function weatherData(lat, lon,state){
 
     var tempature = data.list[i].main.temp_max;
     // console.log(tempature);
+    var dateTime = data.list[i].dt_txt;
 
-    cardCreations( cityName, weather, weatherDesc, tempature, stateName)
+
+    cardCreations( cityName, weather, weatherDesc, tempature, stateName ,dateTime)
 }});
 
 };
 
-function cardCreations(cityName, weather, weatherDesc, tempature, stateName){
+function buttonGenerate () {
+  
+}
+function cardCreations(cityName, weather, weatherDesc, tempature, stateName, dateTime){
   // for (let i = 0; i < 6; i ++){
   var DR = document.getElementById("destinationResults");
   var newArticle = document.createElement("article");
   DR.append(newArticle);
+  // var newSection = document.createElement("section")
   newArticle.classList.add("card");
   newArticle.style.width = '18rem';
   var newDiv = document.createElement("div");
@@ -110,8 +118,12 @@ function cardCreations(cityName, weather, weatherDesc, tempature, stateName){
   newh5.append(cardTitle);
   var newh6 = document.createElement('h6');
   newDiv.append(newh6);
+  var dateOf = document.createTextNode(`Reflective of this date ${dateTime} and the time is based on 24hr clock`);
   var weatherTitle = document.createTextNode(`${weather}`);
   newh6.append(weatherTitle);
+  var pEle = document.createElement("p")
+  pEle.append(dateOf);
+  
   var newPElement = document.createElement("p")
   newDiv.append(newPElement)
   var pBodytemp = document.createTextNode(`The max high ${tempature} Fahrenheit.`);
@@ -121,6 +133,3 @@ function cardCreations(cityName, weather, weatherDesc, tempature, stateName){
   newPElement.append(pBodydes);
 // }
 };
-function buttongenerate () {
-  
-}

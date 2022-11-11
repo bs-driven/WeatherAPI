@@ -1,14 +1,49 @@
 .cstm-header {
-    background-color: cyan;
-    color:springgreen;
+    background-color: lightskyblue;
+    color:peachpuff;
     text-align: center;
+    font-style: italic;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
 }
 .cstm-searchBar{
-    text-align: center;
+    color: white;
+    
+    
+    
+    
 }
 .cstm-lable{
     font-size: 20px;
-    text-decoration: underline;
+    text-decoration: underline
 
+}
+.searchArea{
+    border-bottom: 3px solid;
+    margin: 25px 15px;
+    padding: 25px 25px 25px;   
+   
+}
+body{
+    background-color:lightskyblue
+}
+
+.resultArea{
+    color:black;
+    border: 2px solid whitesmoke;
+  
+}
+.resultcard_rain{
+    background-image:url(./assets/rain.jpg);
+
+}
+/* //////////////////////////////////////////////////////////////////////// */
+.leadOff{
+    text-align: center;
+    margin: 12px 15px;
+    padding: 5px
+}
+
+.searchSection{
+    border: 4px solid black;
 }
