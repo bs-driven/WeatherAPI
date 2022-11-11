@@ -1,7 +1,7 @@
 var searchButton = document.querySelector("#searchBtn");
 var searchContainer = document.querySelector("#searchform");
 var searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
-
+var listHistory =JSON.parse(localStorage.setItem([""],[""]));
 searchButton.addEventListener("click", search);
 
 function search() {
@@ -22,5 +22,8 @@ function search() {
 };
 
 function selectionBtnChoice(cityNames, stateName){
+  var searchList = document.querySelector(".searchList");
+  var choices = document.createTextNode(`${cityNames},${stateName}`);
+
 
 } 
