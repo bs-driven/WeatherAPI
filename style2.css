@@ -56,8 +56,19 @@
  .buttonDisplayArea{
    margin-top: 6px;
    padding-top:10px;
-   margin-right: 75%;
-   border-right: 2px solid black;
-   border-bottom: 2px solid black;
+   padding-right: 8px;
+   margin-right: 73%;
+   border-right: 2px dashed black;
+   border-bottom: 2px dashed black;
  }
+
+ .button_display > .searchList{
+  font-size: 19px;
+  color: red;
+ }
+ .searchList_underline{
+  font-size: 17px;
+  text-decoration: underline;
+ }
+
  
