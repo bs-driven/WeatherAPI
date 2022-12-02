@@ -118,18 +118,19 @@ function cardCreations(cityName, weather, weatherDesc, tempature, stateName, dat
   newh5.append(cardTitle);
   var newh6 = document.createElement('h6');
   newDiv.append(newh6);
+  var pEle = document.createElement("p");
+  newDiv.append(pEle);
   var dateOf = document.createTextNode(`Reflective of this date ${dateTime} and the time is based on 24hr clock`);
   var weatherTitle = document.createTextNode(`${weather}`);
   newh6.append(weatherTitle);
-  var pEle = document.createElement("p")
-  pEle.append(dateOf);
-  
+  // var pEle = document.createElement("p");
+   pEle.append(dateOf);
+ 
   var newPElement = document.createElement("p")
   newDiv.append(newPElement)
   var pBodytemp = document.createTextNode(`The max high ${tempature} Fahrenheit.`);
-  // , Describtion: ${weatherDesc}
   newPElement.append(pBodytemp);
   var pBodydes = document.createTextNode(`Description: ${weatherDesc}. `);
   newPElement.append(pBodydes);
-// }
+
 };

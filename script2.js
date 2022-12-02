@@ -17,66 +17,64 @@ function search() {
     })
     .then (function (data) {
       console.log(data)
-      // var long = data[0].lon
-      // var lata = data[0].lat;
-      // console.log(lata,long)
      
 
       for (let i = 0; i < data.length; i++) {
           var cityNames = data[i].name;
           var stateName = data[i].state;
-          var optionList = [`${cityNames}, ${stateName}`];
           var lat = data[i].lat;
           var lon = data[i].lon;
+          var optionList = [`${cityNames}, ${stateName}`], lat, lon;
     
           // console.log(optionList)
           var listItem = document.createElement('li');
           listItem.id ="search_"+ ( i + 1);
-          var br = document.createElement('br');
-          var aLink = document.createElement('a');
-          aLink.textContent = optionList;
-          aLink.href = '#';
+          // var br = document.createElement('br');
+          // var aLink = document.createElement('a');
+          listItem.textContent = optionList;
+          // aLink.href = '#';
           listItem.classList.add('searchList_underline');
-          listItem.appendChild(aLink);
-          searchList.appendChild(listItem).append(br);
-          cardDisplay(lat,lon)
-
-          // searchList.addEventListener('click', cardDisplay(lat, lon));
-          
+          // listItem.appendChild(aLink);
+          searchList.appendChild(listItem);
+          // searchList.addEventListener('click', function(){cardDisplay(lat,lon);})
 
     }
-    // console.log(searchList)
-    // searchList.addEventListener('click', cardDisplay);
 
-   
-  });
 
-  // searchList.addEventListener('click', cardDisplay(event))
+
+  })};
+
+  // A check me function in order to check if a event is working
+  function check_me(ev) {
+    ev.preventDefault();
+    console.log(ev.target);
+    // alert("Hello World!")
+}
+
+  searchList.addEventListener('click', secondSearch);
+
+  function secondSearch(ev){
+    var personPick = ev.target;
+    var targetID  = ev.target.id;
+    var targetText = [ev.target.textContent]
+    console.log(targetText)
+    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${targetText[0]},${targetText[1]}&limit=1&appid=0586f93376fa6711704b9de4a46cfc56`)
+    .then(function (response) {
+        return response.json()
+      })
+      .then (function (data) {
+        console.log(data);
+        var lat = data.lat;
+        var lon = data.lon;
+      });
+
 
   };
-
-  // searchList.addEventListener('click', cardDisplay);
-
-
-  // function cardDisplay(event) {
-    function cardDisplay(lat, lon) {
-      searchList.addEventListener('click',(event) =>{
-      var slot1 = document.querySelector('#search_1');
-      var slot2 = document.querySelector('#search_2');
-      var slot3 = document.querySelector('#search_3');
-      var slot4 = document.querySelector('#search_4');
-      console.log(slot1);
-      if (event = slot1) {
-
-        fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=0586f93376fa6711704b9de4a46cfc56`)
-
-      }
-   
-      });
-      
-
-  // fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=0586f93376fa6711704b9de4a46cfc56`)
+  
 
   
 
-}
+  function cardDisplay() {
+   
+
+};
