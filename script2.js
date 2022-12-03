@@ -36,7 +36,6 @@ function search() {
           listItem.classList.add('searchList_underline');
           // listItem.appendChild(aLink);
           searchList.appendChild(listItem);
-          // searchList.addEventListener('click', function(){cardDisplay(lat,lon);})
 
     }
 
@@ -64,9 +63,75 @@ function search() {
       })
       .then (function (data) {
         console.log(data);
-        var lat = data.lat;
-        var lon = data.lon;
+        var state = data[0].state;
+        var lat = data[0].lat;
+        var lon = data[0].lon;
+        console.log(lat,lon)
+        finalSearch(lat,lon, state)
       });
+
+
+  };
+  
+  function finalSearch(lat, lon, state){
+    fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=0586f93376fa6711704b9de4a46cfc56`)
+
+    .then(function (response) {
+      return response.json()
+    })
+    .then (function(data){
+      console.log(data);
+      var stateProfile = state;
+      var cityProfile = data.city.name;
+      // day one main temp
+      var dayOne_6am_Temp = data.list[2].main.temp;
+      var dayOne_Noon_Temp = data[4].main.temp;
+      var dayOne_6pm_Temp = data[6].main.temp;
+      // day one weather
+      var dayOne_6am_Weather = data[2].weather[0].description;
+      var dayOne_Noon_Weather = data[4].weather[0].description;
+      var dayOne_6pm_weather = data[6].weather[0].description;
+      // day two main temp
+      var dayTwo_6am_Temp = data.list[10].main.temp;
+      var dayTwo_Noon_Temp = data.list[12].main.temp;
+      var dayTwo_6pm_Temp = data.list[14].main.temp;
+      // day two weather
+      var dayTwo_6am_Weather = data[10].weather[0].description;
+      var dayTwo_Noon_Weather = data[12].weather[0].description;
+      var dayTwo_6pm_weather = data[14].weather[0].description;
+      // day three main temp
+      var dayThree_6am_Temp = data.list[18].main.temp;
+      var dayThree_Noon_Temp = data.list[20].main.temp;
+      var dayThree_6pm_Temp = data.list[22].main.temp;
+      // day three weather
+      var dayThree_6am_Weather = data.list[18].weather[0].description;
+      var dayThree_Noon_Weather = data.list[20].weather[0].description;
+      var dayThree_6pm_weather = data.list[22].weather[0].description;
+      // day four main temp
+      var dayFour_6am_Temp = data.list[26].main.temp
+      var dayFour_Noon_Temp = data.list[28].main.temp
+      var dayFour_6pm_Temp = data.list[30].main.temp
+      // day four weather
+      var dayFour_6am_Weather = data.list[26].weather[0].description;
+      var dayFour_Noon_Weather = data.list[28].weather[0].description;
+      var dayFour_6pm_Weather = data.list[30].weather[0].description;
+      // day five main temp
+      var dayFive_6am_Temp = data.list[34].main.temp;
+      var dayFive_Noon_Temp = data.list[36].main.temp;
+      var dayFive_6pm_Temp = data.list[38].main.temp;
+      // day five weather
+      var dayFive_6am_Weather = data.list[34].weather[0].description;
+      var dayFive_Noon_Weather = data.list[36].weather[0].description;
+      var dayFive_6pm_Weather = data.list[38].weather[0].description;
+
+
+      
+
+
+      
+
+
+    });
 
 
   };
