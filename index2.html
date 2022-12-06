@@ -19,7 +19,7 @@
         <section class = "searchSection">
             <p class ="searchPEle"> 
                 Here we will produce a five day foecast. We ask that you type in the name of the place that you would like to checkout. From Columbus to Ocean City maybe even Hollywood.
-                Just type in where you'd like to know about then click the search button.
+                Just type in where you'd like to know about then click the search button. Your results will be show three instances for a particular day at 6 hour intervals
             </p><br>
             <form  class = "search_form" id = "searchform">
                 <searchBar>
@@ -31,22 +31,66 @@
                 </searchBar>
             </form>
         </section>
-        <section class = "buttonDisplayArea">
+        <aside class = "buttonDisplayArea">
             <article class = "button_display" id ="button_display">
                 <ul class = "searchList" style = "list-style-type: none;"> Display buttons<br><br>
-                    <!-- <li id = "slot1"><a href="#"></a></li><br>
-                    <li id = "slot2"><a href="#">Example2</a></li><br>
-                    <li id = "slot3"><a href="#">Example3</a></li><br>
-                    <li id = "slot4"><a href="#">Example4</a></li><br> -->
-                    <!-- <li id = "slot5"><a href="#">Example5</a></li><br>-->
-                    
                 </ul>
                 
             </article>
 
-        </section>
-        <section class = 'resultArea'>
-            <article class = 'weeklyDisplay'>
+        </aside>
+
+        <section class = 'resultArea' >
+            <article class = 'weeklyDisplay' id = 'resultDisplay'>
+
+                <article class = 'card' id = "day_one"style = "width: 18rem">
+                    <div class = "card-body">
+                        <h5 class = "card-title" id = "date_dayOne"></h5>
+                        <p class = "card-text" id = 'intervalOne_dayOne'></p>
+                        <p class = 'card-text' id = intervalTwo_dayOne></p>
+                        <p class = 'card-text' id = 'intervalThree_dayOne'></p>
+
+                    </div>
+                </article>
+
+                <article class = 'card' id = "day_two" style ="width: 18rem">
+                    <div class = "card-body">
+                        <h5 class = "card-title" id = 'date_dayTwo'></h5>
+                        <p class = "card-text" id = 'intervalOne_dayTwo'></p>
+                        <p class = 'card-text' id = 'intervalTwo_dayTwo'></p>
+                        <p class = 'card-text' id = 'intervalThree_dayTwo'></p>
+                    </div>
+                </article>
+
+                <article class = 'card' id = "day_three" style = "width: 18rem"> 
+                    <div class = "card-body">
+                    <h5 class = "card-title" id = 'date_dayThree'></h5>
+                    <p class = "card-text" id = 'intervalOne_dayThree'></p>
+                    <p class = 'card-text' id = 'intervalTwo_dayThree'></p>
+                    <p class = 'card-text' id = 'intervalThree_dayThree'></p>
+
+                </div>
+            </article>
+
+                <article class = 'card' id = "day_four" style = "width: 18rem">
+                    <div class = "card-body">
+                        <h5 class = "card-title" id = 'date_dayFour'></h5>
+                        <p class = "card-text" id = 'intervalOne_dayFour'></p>
+                        <p class = 'card-text' id = 'intervalTwo_dayFour'></p>
+                        <p class = 'card-text' id = 'intervalThree_dayFour'></p>
+                    </div>
+                </article>
+
+                <article class = 'card' id = "day_five" style = "width: 18rem">
+                    <div class = "card-body">
+                        <h5 class = "card-title" id = 'date_dayFive'></h5>
+                        <p class = "card-text" id = 'intervalOne_dayFive'></p>
+                        <p class = 'card-text' id = 'intervalTwo_dayFive'></p>
+                        <p class = 'card-text' id = 'intervalThree_dayFive'></p>
+
+                    </div>
+                </article>
+
 
             </article>
 
