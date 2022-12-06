@@ -143,8 +143,11 @@ function search() {
       var titleContent_daytwo =  document.createTextNode(`${dayTwo_date}`);
       var firstIn_dayTwo = document.createTextNode(`This weater report starts from the time given with the date. The tempature is ${dayTwo_6am_Temp}°. While the weather is ${dayTwo_6am_Weather}`);
       var secondIn_dayTwo = document.createTextNode(`Here is reflection  six hours from the before mentioned tempature and weather. With the tempature being ${dayTwo_Noon_Temp}°,while outside there is ${dayTwo_Noon_Weather}`);
-      var thirdIn_dayTwo = document.createTextNode(``);
+      var thirdIn_dayTwo = document.createTextNode(`This six hours from the above tempature and weather. The tempature is ${dayTwo_6pm_Temp}°, while outside there is ${dayTwo_6pm_weather}`);
       dayTwo_titleArea.append(titleContent_daytwo);
+      dayTwo_instanceOne.append(firstIn_dayTwo);
+      dayTwo_instanceTwo.append(secondIn_dayTwo);
+      dayTwo_instanceThree.append(thirdIn_dayTwo);
 
       // day threee date
       var dayThree_date = data.list[18].dt_txt;
@@ -165,8 +168,11 @@ function search() {
       var titleContent_dayThree =  document.createTextNode(`${dayThree_date}`);
       var firstIn_dayThree = document.createTextNode(`This weater report starts from the time given with the date. The tempature is ${dayThree_6am_Temp}°. While the weather is ${dayThree_6am_Weather}`);
       var secondIn_dayThree = document.createTextNode(`Here is reflection  six hours from the before mentioned tempature and weather. With the tempature being ${dayThree_Noon_Temp}°,while outside there is ${dayThree_Noon_Weather}`);
-      var thirdIn_dayThree = document.createTextNode(``);
+      var thirdIn_dayThree = document.createTextNode(`This six hours from the above tempature and weather. The tempature is ${dayThree_6pm_Temp}°, while outside there is ${dayThree_6pm_weather}`);
       dayThree_titleArea.append(titleContent_dayThree);
+      dayThree_instanceOne.append(firstIn_dayThree);
+      dayThree_instanceTwo.append(secondIn_dayThree);
+      dayThree_instanceThree.append(thirdIn_dayThree);
 
       // day four date
       var dayFour_date = data.list[26].dt_txt;
@@ -187,8 +193,11 @@ function search() {
       var titleContent_dayFour =  document.createTextNode(`${dayFour_date}`);
       var firstIn_dayFour = document.createTextNode(`This weater report starts from the time given with the date. The tempature is ${dayFour_6am_Temp}°. While the weather is ${dayFour_6am_Weather}`);
       var secondIn_dayFour = document.createTextNode(`Here is reflection  six hours from the before mentioned tempature and weather. With the tempature being ${dayFour_Noon_Temp}°,while outside there is ${dayFour_Noon_Weather}`);
-      var thirdIn_dayFour = document.createTextNode(``);
+      var thirdIn_dayFour = document.createTextNode(`This six hours from the above tempature and weather. The tempature is ${dayFour_6pm_Temp}°, while outside there is ${dayFour_6pm_Weather}`);
       dayFour_titleArea.append(titleContent_dayFour);
+      dayFour_instanceOne.append(firstIn_dayFour);
+      dayFour_instanceTwo.append(secondIn_dayFour);
+      dayFour_instanceThree.append(thirdIn_dayFour);
 
       // day five date
       var dayFive_date = data.list[34].dt_txt;
@@ -209,23 +218,16 @@ function search() {
       var titleContent_dayFive =  document.createTextNode(`${dayFive_date}`);
       var firstIn_dayFive = document.createTextNode(`This weater report starts from the time given with the date. The tempature is ${dayFive_6am_Temp}°. While the weather is ${dayFive_6am_Weather}`);
       var secondIn_dayFive = document.createTextNode(`Here is reflection  six hours from the before mentioned tempature and weather. With the tempature being ${dayFive_Noon_Temp}°,while outside there is ${dayFive_Noon_Weather}`);
-      var thirdIn_dayFive = document.createTextNode(``);
+      var thirdIn_dayFive = document.createTextNode(`This six hours from the above tempature and weather. The tempature is ${dayFive_6pm_Temp}°, while outside there is ${dayFive_6pm_Weather}`);
       dayFive_titleArea.append(titleContent_dayFive);
+      dayFive_instanceOne.append(firstIn_dayFive);
+      dayFive_instanceTwo.append(secondIn_dayFive);
+      dayFive_instanceThree.append(thirdIn_dayFive);
 
-      daysInsert()
+    
 
 
-      function daysInsert(){
-        function dayOneInserts(){
-          var titleContent_dayone = document.createTextNode(`${dayOne_date}`);
-        dayOne_titleArea.append(titleContent_dayone);
-  
-          
-        }
-  
-  
-      }
-
+      
     });
     
 
