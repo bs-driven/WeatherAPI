@@ -8,18 +8,41 @@ var second_day = document.querySelector('#day_two');
 var third_day = document.querySelector('#day_three');
 var fouth_day = document.querySelector('#day_four');
 var fifth_day = document.querySelector('#day_five');
+var dayOne_titleArea = document.querySelector('#date_dayOne');
+var dayOne_instanceOne = document.querySelector('#intervalOne_dayOne');
+var dayOne_instanceTwo = document.querySelector('#intervalTwo_dayOne');
+var dayOne_instanceThree = document.querySelector('#intervalThree_dayOne');
+var dayTwo_titleArea = document.querySelector('#date_dayTwo');      
+var dayTwo_instanceOne = document.querySelector('#intervalOne_dayTwo');
+var dayTwo_instanceTwo = document.querySelector('#intervalTwo_dayTwo');
+var dayTwo_instanceThree = document.querySelector('#intervalThree_dayTwo');
+var dayThree_titleArea = document.querySelector('#date_dayThree');
+var dayThree_instanceOne = document.querySelector('#intervalOne_dayThree');
+var dayThree_instanceTwo = document.querySelector('#intervalTwo_dayThree');
+var dayThree_instanceThree = document.querySelector('#intervalThree_dayThree');
+var dayFour_titleArea = document.querySelector('#date_dayFour');
+var dayFour_instanceOne = document.querySelector('#intervalOne_dayFour');
+var dayFour_instanceTwo = document.querySelector('#intervalTwo_dayFour');
+var dayFour_instanceThree = document.querySelector('#intervalThree_dayFour');
+var dayFive_titleArea = document.querySelector('#date_dayFive');
+var dayFive_instanceOne = document.querySelector('#intervalOne_dayFive');
+var dayFive_instanceTwo = document.querySelector('#intervalTwo_dayFive');
+var dayFive_instanceThree = document.querySelector('#intervalThree_dayFive');
+
 
 // var searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
 // var listHistory =JSON.parse(localStorage.setItem([""],[""]));
 searchButton.addEventListener("click", search);
-searchContainer.addEventListener("keypress", function(e){
-  if(e.key === 'Enter'){
+
+searchContainer.addEventListener("keypress", function(ev){
+  if(ev.key === 'Enter'){
     search()
   }
-})
+});
 
 function search() {
-
+  
+  
   var desiredLocation = document.querySelector("#searchLocation").value;
 
   fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${desiredLocation}&limit=4&appid=0586f93376fa6711704b9de4a46cfc56`)
@@ -35,18 +58,20 @@ function search() {
           var stateName = data[i].state;
           var lat = data[i].lat;
           var lon = data[i].lon;
-          var optionList = [`${cityNames}, ${stateName}`], lat, lon;
+          optionList = [`${cityNames}, ${stateName},${lat},${lon}`];
+          var choiceList = [`${cityNames}, ${stateName}`]
     
           // console.log(optionList)
           var listItem = document.createElement('li');
           listItem.id ="search_"+ ( i + 1);
           // var br = document.createElement('br');
           var aLink = document.createElement('a');
-          aLink.textContent = optionList;
+          aLink.textContent = choiceList;
           aLink.href = '#';
           listItem.classList.add('searchList_underline');
           listItem.appendChild(aLink);
           searchList.appendChild(listItem);
+          console.log(optionList)
 
     }
 
@@ -78,8 +103,9 @@ function search() {
         var state = data[0].state;
         var lat = data[0].lat;
         var lon = data[0].lon;
-        console.log(lat,lon)
-        finalSearch(lat,lon, state)
+        // console.log(lat,lon)
+
+        finalSearch(lat,lon, state,)
         
         
       });
@@ -87,7 +113,7 @@ function search() {
 
   };
   
-  function finalSearch(lat, lon, state){
+  function finalSearch(lat, lon, state,){
     fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=0586f93376fa6711704b9de4a46cfc56`)
 
     .then(function (response) {
@@ -99,10 +125,6 @@ function search() {
       var cityProfile = data.city.name;
       // day one date
       var dayOne_date = data.list[2].dt_txt;
-      var dayOne_titleArea = document.querySelector('#date_dayOne');
-      var dayOne_instanceOne = document.querySelector('#intervalOne_dayOne');
-      var dayOne_instanceTwo = document.querySelector('#intervalTwo_dayOne');
-      var dayOne_instanceThree = document.querySelector('#intervalThree_dayOne');
 
       // day one main temp
       var dayOne_6am_Temp = data.list[2].main.temp;
@@ -126,10 +148,6 @@ function search() {
 
     //  day two date
       var dayTwo_date = data.list[10].dt_txt;
-      var dayTwo_titleArea = document.querySelector('#date_dayTwo');      
-      var dayTwo_instanceOne = document.querySelector('#intervalOne_dayTwo');
-      var dayTwo_instanceTwo = document.querySelector('#intervalTwo_dayTwo');
-      var dayTwo_instanceThree = document.querySelector('#intervalThree_dayTwo');
 
       // day two main temp
       var dayTwo_6am_Temp = data.list[10].main.temp;
@@ -151,10 +169,7 @@ function search() {
 
       // day threee date
       var dayThree_date = data.list[18].dt_txt;
-      var dayThree_titleArea = document.querySelector('#date_dayThree');
-      var dayThree_instanceOne = document.querySelector('#intervalOne_dayThree');
-      var dayThree_instanceTwo = document.querySelector('#intervalTwo_dayThree');
-      var dayThree_instanceThree = document.querySelector('#intervalThree_dayThree');
+     
 
       // day three main temp
       var dayThree_6am_Temp = data.list[18].main.temp;
@@ -176,10 +191,7 @@ function search() {
 
       // day four date
       var dayFour_date = data.list[26].dt_txt;
-      var dayFour_titleArea = document.querySelector('#date_dayFour');
-      var dayFour_instanceOne = document.querySelector('#intervalOne_dayFour');
-      var dayFour_instanceTwo = document.querySelector('#intervalTwo_dayFour');
-      var dayFour_instanceThree = document.querySelector('#intervalThree_dayFour');
+      
 
       // day four main temp
       var dayFour_6am_Temp = data.list[26].main.temp
@@ -201,11 +213,7 @@ function search() {
 
       // day five date
       var dayFive_date = data.list[34].dt_txt;
-      var dayFive_titleArea = document.querySelector('#date_dayFive');
-      var dayFive_instanceOne = document.querySelector('#intervalOne_dayFive');
-      var dayFive_instanceTwo = document.querySelector('#intervalTwo_dayFive');
-      var dayFive_instanceThree = document.querySelector('#intervalThree_dayFive');
-
+  
       // day five main temp
       var dayFive_6am_Temp = data.list[34].main.temp;
       var dayFive_Noon_Temp = data.list[36].main.temp;
@@ -230,6 +238,7 @@ function search() {
       
     });
     
+  
 
 
   };
