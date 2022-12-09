@@ -1,49 +1,96 @@
-.cstm-header {
-    background-color: lightskyblue;
-    color:peachpuff;
+.leadOff {
+    /* border-bottom: 5px dashed black; */
+    background-image: url(./assets/clear_day.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
     text-align: center;
-    font-style: italic;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
-}
-.cstm-searchBar{
-    color: white;
-    
-    
-    
-    
-}
-.cstm-lable{
-    font-size: 20px;
-    text-decoration: underline
-
-}
-.searchArea{
-    border-bottom: 3px solid;
-    margin: 25px 15px;
-    padding: 25px 25px 25px;   
-   
-}
-body{
-    background-color:lightskyblue
+    padding-top: 40px;
+    padding-bottom: 20px;
 }
 
-.resultArea{
-    color:black;
-    border: 2px solid whitesmoke;
+ .intro, .subIntro {
+    color: teal ;
+    background-color: aliceblue;
+ }
+ 
+ .searchSection{
+    color: teal;
+    margin-top: 5px;
+    padding: 20px;
+    background-color: aliceblue;
+    border-bottom: 6px solid  black;
+    margin-bottom: 10px;
+    
+ }
+
+ .searchPEle{
+   text-indent: 14px;
+   font-size: 21px;
+   font-family:Verdana, Geneva, Tahoma, sans-serif
+ }
+
+ .search_form{
+ text-align: center;
+ }
+
+ .cstm-lable{
+   font-family:Verdana, Geneva, Tahoma, sans-serif;
+   text-decoration: underline;
+   font-size: 22px;
+ }
+
+ .cstm-searchBar{
+   width: 75%;
+   border: 2px solid teal; 
+ }
+ #searchBtn{
+   font-family:Verdana, Geneva, Tahoma, sans-serif;
+   color:teal;
+   border: 4px solid;
+ }
+
+
+ #searchBtn:hover{
+   background-color: gold;
+   border-width: 2px;
+ }
+
+ .buttonDisplayArea{
+   margin-top: 6px;
+   padding:10px;
+   border-right: 2px dashed black;
+   border-bottom: 2px dashed black;
+   margin-right: 10px;
+   text-align: center;
+ }
+
+ .button_display > .searchList{
+  font-size: 19px;
+  color: red;
+  text-align: center;
+ }
+ .searchList_underline{
+  font-size: 17px;
+  text-decoration: underline;
+  padding: 6px;
+ }
+
+ .resultArea{
+  margin-left: 240px;
+  margin-top: -5px;
+  border: 3px solid black;
+
+ }
+ .resultTitle{
+  text-align: center;
   
-}
-.resultcard_rain{
-    background-image:url(./assets/rain.jpg);
+ }
 
-}
-/* //////////////////////////////////////////////////////////////////////// */
-.leadOff{
-    text-align: center;
-    margin: 12px 15px;
-    padding: 5px
-}
+ .resultArea > .weeklyDisplay{
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
 
-.searchSection{
-    border: 4px solid black;
-}
+ }
+
+ 
